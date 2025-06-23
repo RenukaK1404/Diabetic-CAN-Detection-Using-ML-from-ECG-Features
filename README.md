@@ -23,9 +23,8 @@ To develop a machine learning model that can reliably detect **Cardiovascular Au
 ## Workflow Overview
 
 ### 1️⃣ Dataset Acquisition
-- Sourced from an open-access ECG database.
+- Sourced from an synthetic ECG database.
 - Contains data from **25 CAN-diagnosed** and **25 normal individuals**.
-- ECGs were recorded using wearable sensors (e.g., Zephyr BioHarness 3).
 
 ### 2️⃣ Data Preprocessing
 - **Signal Filtering:** Bandpass filter (0.5–40 Hz) to remove motion artifacts, noise, and baseline drift.
@@ -77,8 +76,8 @@ Follow the guide below to reproduce results on your workstation.
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/YourUsername/ML-ECG-CAN-Detection.git
-cd ML-ECG-CAN-Detection
+git clone https://github.com/RenukaK1404/Diabetic-CAN-Detection-Using-ML-from-ECG-Features.git
+cd Diabetic-CAN-Detection-Using-ML-from-ECG-Features
 ```
 
 ### 2️⃣ Install Dependencies
@@ -88,22 +87,24 @@ pip install numpy pandas matplotlib seaborn scikit-learn xgboost neurokit2 scipy
 
 ### 3️⃣ Run the Pipeline
 
+To run the Logistic Regression Model:
 ```bash
-python src/preprocessing.py
-python src/feature_extraction.py
+python lr.py
 ```
-
-**Train & evaluate models**
+To run the Randomforest Regression Model:
 ```bash
-python src/model_training.py
+python rf.py
+```
+To run the XGBoost Model:
+```bash
+python xgb.py
 ```
 
 ### 4️⃣ Output Artefacts
-- **`results/`** – ROC curves, confusion matrices, metric CSVs  
+- **`results/`** – ROC curves, confusion matrices, feature distribution, label distribution, metric CSVs  
 - **`models/`** – Trained classifiers (`.pkl`) ready for inference  
 - **`data/processed/`** – Labeled HRV-feature tables  
 
----
 
 ## 💡 Future Directions
 - Increase dataset size & diversity for stronger generalisation.  
@@ -112,9 +113,7 @@ python src/model_training.py
 - Deploy as a **Streamlit or mobile app** for bedside/wearable use.  
 - Fuse multimodal data (ECG + EDA + BPV) for holistic autonomic assessment.  
 
----
 
 ## 🛠️ Key Technologies
 `Python 3.x` • `NumPy` • `Pandas` • `SciPy` • `scikit-learn` • `XGBoost` • `NeuroKit2` • `Matplotlib` • `Seaborn`
 
----
